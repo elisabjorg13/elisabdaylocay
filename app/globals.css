@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  background: #e7e1d6;
+  font-family: inherit;
+}
+
+.leaflet-container img {
+  max-width: none !important;
+  max-height: none !important;
+}
+
+.leaflet-div-icon.live-location-icon {
+  background: transparent;
+  border: none;
+}
+
+.live-location-dot {
+  display: block;
+  box-sizing: border-box;
+  width: 22px;
+  height: 22px;
+  border: 3px solid #fff;
+  border-radius: 9999px;
+  background: #1d4ed8;
+  box-shadow: 0 0 0 6px rgba(29, 78, 216, 0.25);
+}
+
+.live-location-dot-hot {
+  width: 42px;
+  height: 42px;
+  border: 6px solid #7f1d1d;
+  background: #dc2626;
+  box-shadow: 0 0 0 10px rgba(220, 38, 38, 0.35);
+}
+
+.leaflet-bottom.leaflet-right {
+  margin-bottom: env(safe-area-inset-bottom);
+}

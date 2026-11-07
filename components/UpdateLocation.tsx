@@ -6,6 +6,18 @@ import { formatAccuracy, formatCoordinate } from "@/lib/format";
 
 type Fix = { lat: number; lng: number; accuracy: number; updatedAt: string };
 
+async function failureMessage(response: Response, fallback: string) {
+  try {
+    const data: unknown = await response.json();
+    if (data && typeof data === "object" && "error" in data && typeof data.error === "string") {
+      return data.error;
+    }
+  } catch {
+    return fallback;
+  }
+  return fallback;
+}
+
 function geoMessage(error: GeolocationPositionError) {
   if (error.code === error.PERMISSION_DENIED) {
     return "Location permission is blocked. Allow location for this site in Safari, then try again.";
@@ -27,7 +39,7 @@ export default function UpdateLocation() {
     try {
       const response = await fetch("/api/location", { method: "DELETE" });
       if (!response.ok) {
-        setError("Could not clear the old places.");
+        setError(await failureMessage(response, "Could not clear the old places."));
         return;
       }
       setFix(null);
@@ -66,8 +78,12 @@ export default function UpdateLocation() {
             body: JSON.stringify(body),
           });
           const data: unknown = await response.json();
-          if (!response.ok || !data || typeof data !== "object") {
-            setError("Could not save the location.");
+          if (!response.ok || !data || typeof data !== "object" || !("lat" in data)) {
+            setError(
+              data && typeof data === "object" && "error" in data && typeof data.error === "string"
+                ? data.error
+                : "Could not save the location.",
+            );
             setStatus("Press the button to try again.");
             return;
           }

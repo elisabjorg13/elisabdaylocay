@@ -5,7 +5,7 @@ Two pages:
 - `/` shows a map of London, the latest dot, the older stops, and a line between them.
 - `/updateloc` is the private page. Open it on your phone and press **Update my location**. **clearloc** removes the old dots so you can start again.
 
-Each press adds a point to `data/location.json`. The site does not track after you leave the update page.
+Each press adds a point. Locally that file is `data/location.json`. On Vercel the filesystem cannot be written, so the project needs a Blob store: open the project, go to Storage, create a Blob store, connect it, and redeploy. The site does not track after you leave the update page.
 
 ```bash
 npm install

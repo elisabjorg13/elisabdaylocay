@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { addLocation, clearHistory, readHistory } from "@/lib/location-store";
+import { addLocation, clearHistory, LocationStoreError, readHistory } from "@/lib/location-store";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -25,12 +25,22 @@ export async function POST(req: Request) {
   } catch {
     return json({ error: "That location could not be saved." }, 400);
   }
-  const saved = await addLocation(body);
-  if (!saved) return json({ error: "That location could not be saved." }, 400);
-  return json(saved);
+  try {
+    const saved = await addLocation(body);
+    if (!saved) return json({ error: "That location could not be saved." }, 400);
+    return json(saved);
+  } catch (error) {
+    const message = error instanceof LocationStoreError ? error.message : "Could not save the location.";
+    return json({ error: message }, 500);
+  }
 }
 
 export async function DELETE() {
-  await clearHistory();
-  return json({ points: [] });
+  try {
+    await clearHistory();
+    return json({ points: [] });
+  } catch (error) {
+    const message = error instanceof LocationStoreError ? error.message : "Could not clear the old places.";
+    return json({ error: message }, 500);
+  }
 }

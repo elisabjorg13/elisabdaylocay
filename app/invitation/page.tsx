@@ -87,7 +87,7 @@ export default function InvitationPage() {
             </li>
             <li>
               <p>
-                and then OPEN decks and fireplace at my house{" "}
+                and then OPEN decks and garden firepit at my house{" "}
                 <a className="underline" href={house}>
                   36 Ashmore Cl
                 </a>

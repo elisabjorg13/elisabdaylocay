@@ -66,3 +66,30 @@ body {
 .leaflet-bottom.leaflet-right {
   margin-bottom: env(safe-area-inset-bottom);
 }
+
+.sike-sticker {
+  position: absolute;
+  top: max(0.75rem, env(safe-area-inset-top));
+  right: 1rem;
+  z-index: 20;
+  margin: 0;
+  padding: 0.05em 0.2em 0.12em;
+  background: #fff;
+  color: #e00000;
+  font-family: "Times New Roman", Times, serif;
+  font-size: clamp(3.25rem, 9vw, 6rem);
+  line-height: 0.8;
+  pointer-events: none;
+  box-shadow: 5px 6px 0 rgba(0, 0, 0, 0.28);
+  animation: sike-pulse 1.15s ease-in-out infinite;
+}
+
+@keyframes sike-pulse {
+  0%,
+  100% {
+    transform: rotate(-16deg) scale(1);
+  }
+  50% {
+    transform: rotate(-8deg) scale(1.14);
+  }
+}

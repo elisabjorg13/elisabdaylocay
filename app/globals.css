@@ -47,6 +47,22 @@ body {
   box-shadow: 0 0 0 10px rgba(220, 38, 38, 0.35);
 }
 
+.invite-pin {
+  display: flex;
+  box-sizing: border-box;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #9d174d;
+  border-radius: 9999px;
+  background: #ffb6c1;
+  color: #1a1916;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+  line-height: 1;
+}
+
 .leaflet-bottom.leaflet-right {
   margin-bottom: env(safe-area-inset-bottom);
 }

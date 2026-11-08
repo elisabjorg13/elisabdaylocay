@@ -35,47 +35,48 @@ export default function InvitationPage() {
         </h1>
       </header>
 
-      <section className="mx-auto max-w-2xl px-5 py-8" style={letter}>
-        <h2 className="text-3xl">the program is as such</h2>
-        <ol className="mt-6 space-y-6 text-2xl leading-snug">
-          <li>
-            <p>
-              15:15{" "}
-              <a className="underline" href={dungeon}>
-                London Dungeon
-              </a>
-            </p>
-            <p className="mt-1 text-xl">50% discount on student bean</p>
-          </li>
-          <li>
-            <p>
-              20:30{" "}
-              <a className="underline" href={hongKong}>
-                Hong Kong City
-              </a>
-            </p>
-          </li>
-          <li>
-            <p>after that we go to a PUB</p>
-            <p className="mt-1 text-xl">I&apos;ll update the website when I know lol</p>
-          </li>
-          <li>
-            <p>
-              and then OPEN decks and fireplace at my house{" "}
-              <a className="underline" href={house}>
-                36 Ashmore Cl
-              </a>
-            </p>
-          </li>
-        </ol>
-      </section>
-
-      <section className="h-[70vh] min-h-[420px]" aria-label="Map of the places">
-        <InvitationMapSection stops={stops} />
-      </section>
-      <p className="mx-auto max-w-2xl px-5 py-3 text-base text-[#6b6560]" style={letter}>
-        The pins are London Dungeon, Hong Kong City, and the house. The pub is not on the map yet.
-      </p>
+      <div className="grid h-[70vh] min-h-[520px] grid-cols-2">
+        <section className="overflow-y-auto px-5 py-8" style={letter}>
+          <h2 className="text-3xl">the program is as such</h2>
+          <ol className="mt-6 space-y-6 text-2xl leading-snug">
+            <li>
+              <p>
+                15:15{" "}
+                <a className="underline" href={dungeon}>
+                  London Dungeon
+                </a>
+              </p>
+              <p className="mt-1 text-xl">50% discount on student bean</p>
+            </li>
+            <li>
+              <p>
+                20:30{" "}
+                <a className="underline" href={hongKong}>
+                  Hong Kong City
+                </a>
+              </p>
+            </li>
+            <li>
+              <p>after that we go to a PUB</p>
+              <p className="mt-1 text-xl">I&apos;ll update the website when I know lol</p>
+            </li>
+            <li>
+              <p>
+                and then OPEN decks and fireplace at my house{" "}
+                <a className="underline" href={house}>
+                  36 Ashmore Cl
+                </a>
+              </p>
+            </li>
+          </ol>
+          <p className="mt-6 text-base text-[#6b6560]">
+            The pins are London Dungeon, Hong Kong City, and the house. The pub is not on the map yet.
+          </p>
+        </section>
+        <section className="h-full min-h-0" aria-label="Map of the places">
+          <InvitationMapSection stops={stops} />
+        </section>
+      </div>
 
       <section
         className="mx-auto max-w-2xl px-5 pb-[max(2.5rem,env(safe-area-inset-bottom))] pt-4"

@@ -27,9 +27,10 @@ function Frame({ stops }: { stops: JourneyStop[] }) {
   const key = stops.map((stop) => `${stop.lat},${stop.lng}`).join("|");
 
   useEffect(() => {
+    map.invalidateSize();
     map.fitBounds(
       stops.map((stop) => [stop.lat, stop.lng]),
-      { padding: [48, 48], maxZoom: 14 },
+      { padding: [36, 36], maxZoom: 14 },
     );
   }, [key, map, stops]);
 

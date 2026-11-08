@@ -31,7 +31,8 @@ export default function InvitationPage() {
     <main className="min-h-dvh bg-[#e00000] text-white">
       <header className="px-5 pb-4 pt-[max(1.25rem,env(safe-area-inset-top))]" style={letter}>
         <h1 className="text-xl leading-snug sm:text-2xl">
-          you are invited to Elisa&apos;s birthday journey and I want YOU to join
+          This Friday 13th of november you are invited to Elisa&apos;s birthday journey and I want YOU
+          to join
         </h1>
       </header>
 

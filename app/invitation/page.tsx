@@ -24,14 +24,10 @@ const letter = { fontFamily: '"Times New Roman", Times, serif' } as const;
 
 export default function InvitationPage() {
   return (
-    <main className="min-h-dvh">
-      <header
-        className="bg-white px-5 pb-6 pt-[max(1.5rem,env(safe-area-inset-top))]"
-        style={letter}
-      >
+    <main className="min-h-dvh bg-[#e00000] text-white">
+      <header className="px-5 pb-6 pt-[max(1.5rem,env(safe-area-inset-top))]" style={letter}>
         <h1 className="text-4xl leading-tight sm:text-5xl">
-          <span className="text-[#ffb6c1]">SIKE!</span> you are invited to Elisa&apos;s birthday journey and I
-          want YOU to join 👉
+          SIKE! you are invited to Elisa&apos;s birthday journey and I want YOU to join 👉
         </h1>
       </header>
 
@@ -69,7 +65,7 @@ export default function InvitationPage() {
               </p>
             </li>
           </ol>
-          <p className="mt-6 text-base text-[#6b6560]">
+          <p className="mt-6 text-base text-white">
             The pins are London Dungeon, Hong Kong City, and the house. The pub is not on the map yet.
           </p>
         </section>
@@ -84,7 +80,7 @@ export default function InvitationPage() {
       >
         <p className="text-3xl leading-tight sm:text-4xl">
           During the day you can track me down{" "}
-          <Link href="/" className="text-[#ffb6c1]">
+          <Link href="/" className="text-white underline">
             HERE!
           </Link>
         </p>

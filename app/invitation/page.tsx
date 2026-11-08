@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import InviteHeadline from "@/components/InviteHeadline";
 import InvitationMapSection from "@/components/InvitationMapSection";
 import type { JourneyStop } from "@/components/InvitationMap";
 
+const blank = "\u00a0";
+
 export const metadata: Metadata = {
-  title: "Invitation",
-  description: "Elisa's birthday journey.",
+  title: { absolute: blank },
+  description: blank,
+  openGraph: { title: blank, description: blank },
+  twitter: { card: "summary", title: blank, description: blank },
 };
 
 const dungeon =
@@ -30,10 +35,7 @@ export default function InvitationPage() {
   return (
     <main className="min-h-dvh bg-[#e00000] text-white">
       <header className="px-5 pb-4 pt-[max(1.25rem,env(safe-area-inset-top))]" style={letter}>
-        <h1 className="text-xl leading-snug sm:text-2xl">
-          This Friday 13th of november you are invited to Elisa&apos;s birthday journey and I want YOU
-          to join
-        </h1>
+        <InviteHeadline />
       </header>
 
       <div className="grid min-h-[70vh] grid-cols-2">

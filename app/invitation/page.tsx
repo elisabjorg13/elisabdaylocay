@@ -12,12 +12,15 @@ export const metadata: Metadata = {
 const dungeon =
   "https://www.google.com/maps/place/The+London+Dungeon/@51.5025119,-0.1213377,17z/data=!3m1!4b1!4m6!3m5!1s0x487604c70bc8d293:0x39108cb6fa0e39d9!8m2!3d51.5025119!4d-0.1187628!16zL20vMDI5bWIy?entry=ttu&g_ep=EgoyMDI2MTEwMy4wIKXMDSoASAFQAw%3D%3D";
 const hongKong = "https://www.google.com/maps/search/?api=1&query=51.477591%2C-0.050859";
+const pub =
+  "https://www.google.com/maps/place/The+Dog+%26+Bell/@51.4833547,-0.0284138,17z/data=!3m1!4b1!4m6!3m5!1s0x487602f282f0f017:0x45e5b1e316f5c2d3!8m2!3d51.4833547!4d-0.0258389!16s%2Fg%2F1tcy3sfy?entry=ttu&g_ep=EgoyMDI2MTEwMy4wIKXMDSoASAFQAw%3D%3D";
 const house =
   "https://www.google.com/maps/place/36+Ashmore+Cl,+London+SE15+5GY/@51.4764902,-0.0742523,17z/data=!3m1!4b1!4m6!3m5!1s0x48760374c238d601:0xdf15240fddde836c!8m2!3d51.4764902!4d-0.0716774!16s%2Fg%2F11cpnx93_c?entry=ttu&g_ep=EgoyMDI2MTEwMy4wIKXMDSoASAFQAw%3D%3D";
 
 const stops: JourneyStop[] = [
   { name: "London Dungeon", time: "15:15", lat: 51.5025119, lng: -0.1187628, href: dungeon },
   { name: "Hong Kong City", time: "20:30", lat: 51.477591, lng: -0.050859, href: hongKong },
+  { name: "Dog and Bell", time: "after dinner", lat: 51.4833547, lng: -0.0258389, href: pub },
   { name: "36 Ashmore Cl", time: "after the pub", lat: 51.4764902, lng: -0.0716774, href: house },
 ];
 
@@ -25,10 +28,9 @@ const letter = { fontFamily: '"Times New Roman", Times, serif' } as const;
 
 export default function InvitationPage() {
   return (
-    <main className="relative min-h-dvh bg-[#e00000] text-white">
-      <p className="sike-sticker">SIKE!</p>
+    <main className="min-h-dvh bg-[#e00000] text-white">
       <header className="px-5 pb-4 pt-[max(1.25rem,env(safe-area-inset-top))]" style={letter}>
-        <h1 className="max-w-[calc(100%-8.5rem)] text-xl leading-snug sm:text-2xl">
+        <h1 className="text-xl leading-snug sm:text-2xl">
           you are invited to Elisa&apos;s birthday journey and I want YOU to join
         </h1>
       </header>
@@ -73,8 +75,12 @@ export default function InvitationPage() {
               />
             </li>
             <li>
-              <p>after that we go to a PUB</p>
-              <p className="mt-1 text-xl">I&apos;ll update the website when I know lol</p>
+              <p>
+                after that we go to{" "}
+                <a className="underline" href={pub}>
+                  Dog and Bell
+                </a>
+              </p>
             </li>
             <li>
               <p>
@@ -86,8 +92,9 @@ export default function InvitationPage() {
             </li>
           </ol>
         </section>
-        <section className="h-full min-h-0" aria-label="Map of the places">
+        <section className="relative h-full min-h-0" aria-label="Map of the places">
           <InvitationMapSection stops={stops} />
+          <p className="sike-sticker">SIKE!</p>
         </section>
       </div>
 
@@ -96,6 +103,10 @@ export default function InvitationPage() {
         style={letter}
       >
         <p className="text-lg leading-snug">
+          let me know if you wanna come to the DUNGEON or if you will be pulling up after to the
+          dinner and drinks!!
+        </p>
+        <p className="mt-4 text-lg leading-snug">
           During the day you can track me down{" "}
           <Link href="/" className="text-white underline">
             HERE!
